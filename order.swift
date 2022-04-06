@@ -1,37 +1,30 @@
 //
-//  Makanan.swift
+//  Order.swift
 //  OOP PoS
 //
-//  Created by Macbook Pro on 06/04/22.
+//  Created by Macbook Pro on 24/03/22.
 //
 
 import Foundation
 
 
-public class FNB{
-     private var name:String = ""
-    private var count:Int = 0
+public class order:FNB,Keranjang{
     
-    init(name:String = "", count:Int = 0){
-        self.name = name
-        self.count = count
+    
+    
+    private var dict = [String:Int]()
+    
+    init(count:Int = 0,name:String = ""){
+        super.init(name: name, count: count)
     }
-    
-    var nameEn:String{
-        get{
-            return name
-        }
-        set(declare){
-            name = declare
-        }
+    public func addKeranjang(Barang:String,Jumlah:Int){
+        dict[Barang] = Jumlah
     }
-    
-    var countEn:Int{
-        get{
-            return count
-        }
-        set(declare){
-            count = declare
+    public func lihatKeranjang(){
+        for (key,value) in dict{
+            print(value, key)
         }
     }
 }
+
+
